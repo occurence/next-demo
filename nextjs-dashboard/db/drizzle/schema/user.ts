@@ -1,10 +1,10 @@
 import { relations } from 'drizzle-orm';
 import { pgTable, serial, varchar } from 'drizzle-orm/pg-core';
-{/*}
+
 import { admin } from './admin';
 import { audit_history } from './audit_history';
 import { employee } from './employee';
-import { manager } from './manager';*/}
+import { manager } from './manager';
 
 export const user = pgTable('user_info', {
   id: serial('id').primaryKey().notNull(),
@@ -13,12 +13,13 @@ export const user = pgTable('user_info', {
   last_name: varchar('last_name', { length: 256 }),
   email: varchar('email', { length: 256 }).notNull(),
   password: varchar('password', { length: 256 }).notNull(),
+  image_url: varchar('image_url', { length: 256 }).notNull(),
 });
-{/*}
+
 //RELATIONS
 export const userRelations = relations(user, ({ many }) => ({
   admin: many(admin),
   manager: many(manager),
   employee: many(employee),
   audit_history: many(audit_history),
-}));*/}
+}))
