@@ -7,8 +7,22 @@ import {
   LatestInvoiceRaw,
   User,
   Revenue,
+  UserInfo
 } from './definitions';
 import { formatCurrency } from './utils';
+
+export async function fetchUserInfo() {
+  try {
+    const data = await sql<UserInfo>`SELECT * FROM user_info WHERE ID = 1`;
+
+    // console.log('Data fetch completed after 3 seconds.');
+
+    return data.rows;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch revenue data.');
+  }
+}
 
 export async function fetchRevenue() {
   // Add noStore() here to prevent the response from being cached.

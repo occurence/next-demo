@@ -9,11 +9,12 @@ export default async function Page() {
     const userinfo = await fetchUserInfo();
   return (
     <main>
-      {/*<h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
+      <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
         Dashboard
-  </h1>*/}
+  </h1>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      <UserInfo userinfo={userinfo}  />
+        {/*
+      <UserInfo userinfo={userinfo}  />*/}
       {/*}
       <RevenueChart revenue={revenue}  />
       <LatestInvoices latestInvoices={latestInvoices} />
